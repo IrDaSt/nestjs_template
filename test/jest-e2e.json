@@ -1,0 +1,21 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+    "moduleNameMapper": {
+      "^@models(.*)$": "<rootDir>/src/resources/models/$1",
+      "^@config(.*)$": "<rootDir>/src/resources/config/$1",
+      "^@utilities(.*)$": "<rootDir>/src/resources/utilities/$1",
+      "^@exceptions(.*)$": "<rootDir>/src/resources/exceptions/$1",
+      "^@services(.*)$": "<rootDir>/src/resources/services/$1",
+      "^@guards(.*)$": "<rootDir>/src/resources/guards/$1",
+      "^@custom-types(.*)$": "<rootDir>/src/resources/custom-types/$1",
+      "^@websockets(.*)$": "<rootDir>/src/resources/websockets/$1",
+      "^@task-scheduler(.*)$": "<rootDir>/src/resources/task-scheduler/$1",
+      "^@constants(.*)$": "<rootDir>/src/resources/constants/$1"
+    }
+}

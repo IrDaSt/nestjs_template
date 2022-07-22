@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
+    "paths": {
+      // "@app": [
+      //   "src/app.ts"
+      // ],
+      // "@routes/*": [
+      //   "src/routes/*"
+      // ],
+      // "@services/*": [
+      //   "src/services/*"
+      // ],
+      "@models/*": [
+        "src/resources/models/*"
+      ],
+      "@utilities/*": [
+        "src/resources/utilities/*"
+      ],
+      "@exceptions/*": [
+        "src/resources/exceptions/*"
+      ],
+      "@constants/*": [
+        "src/resources/constants/*"
+      ],
+      "@config/*": [
+        "src/resources/config/*"
+      ],
+      "@services/*": [
+        "src/resources/services/*"
+      ],
+      "@guards/*": [
+        "src/resources/guards/*"
+      ],
+      "@custom-types/*": [
+        "src/resources/custom-types/*"
+      ],
+      "@websockets/*": [
+        "src/resources/websockets/*"
+      ],
+      "@task-scheduler/*": [
+        "src/resources/task-scheduler/*"
+      ],
+    },
+  }
+}
