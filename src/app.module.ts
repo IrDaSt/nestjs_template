@@ -16,9 +16,6 @@ import { NodemailerModule } from '@services/nodemailer/nodemailer.module'
 import { WebModule } from './routes/web/web.module'
 import { BaseGateway } from '@websockets/gateway/base.gateway'
 
-// TODO: Create migration to generate database for MySQL and Postgres Database
-// TODO: FIX README.md and add explanation for which service is using the database (multi db implementation)
-
 @Module({
   imports: [
     ConfigModule.forRoot({
