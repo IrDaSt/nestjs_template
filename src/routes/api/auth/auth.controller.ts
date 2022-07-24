@@ -37,6 +37,7 @@ export class AuthController {
 
   private readonly logger = new Logger(AuthController.name)
 
+  // Get user info with AuthJwtGuard
   @Get('/info')
   @UseGuards(AuthJwtGuard)
   async getUserInfo(@Req() req: CustomExpressRequest, @Res() res: Response) {
@@ -59,6 +60,7 @@ export class AuthController {
     }
   }
 
+  // Authentication login implementation to generate custom jwt token
   @Post('/login')
   @UseInterceptors(FileFieldsInterceptor([]))
   async login(
@@ -104,6 +106,7 @@ export class AuthController {
     }
   }
 
+  // Register user and generate jwt token
   @Post('/register')
   @UseInterceptors(FileFieldsInterceptor([]))
   async register(
