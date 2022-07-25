@@ -1,23 +1,35 @@
-import { Injectable } from '@nestjs/common'
+import { ServerConfigModel } from '@config/server.config'
+import { Injectable, Logger } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
+import cryptoUtils from '@utilities/crypto.utils'
 import idGeneratorUtils from '@utilities/id-generator.utils'
 
 @Injectable()
 export class JwtCustomService {
-  constructor(private readonly jwtService: JwtService) {}
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly configService: ConfigService,
+  ) {}
+
+  private readonly logger = new Logger(JwtCustomService.name)
+  private readonly serverConfig =
+    this.configService.get<ServerConfigModel>('server')
 
   generateToken = (data: any) => {
     const token = this.jwtService.sign(data)
-    const tokenize =
-      token.substring(0, 40) +
-      idGeneratorUtils.generateUUIDV4().slice(-15) +
-      token.substring(40)
-    return tokenize
+    const encrypt_token = cryptoUtils.encryptWithSecretKey(
+      token,
+      this.serverConfig.secret_token,
+    )
+    return encrypt_token
   }
 
   verifyToken = (token: string) => {
-    return this.jwtService.verify(
-      token.substring(0, 40) + token.substring(40 + 15),
+    const decrypt_token = cryptoUtils.decryptWithSecretKey(
+      token,
+      this.serverConfig.secret_token,
     )
+    return this.jwtService.verify(decrypt_token)
   }
 }

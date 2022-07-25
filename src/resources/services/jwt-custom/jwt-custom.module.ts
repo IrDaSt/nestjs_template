@@ -19,6 +19,7 @@ import { JwtCustomService } from './jwt-custom.service'
       },
       inject: [ConfigService],
     }),
+    ConfigModule,
   ],
   providers: [JwtCustomService],
   exports: [JwtCustomService],

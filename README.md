@@ -25,6 +25,11 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a boilerplate template for faster development with nestjs. Here are the features from this boilerplate:
+
+1. Structured project for great scalability
+2. Exceptions handler
+3. Authentication with
 
 ## Installation
 
