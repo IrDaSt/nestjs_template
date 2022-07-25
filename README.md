@@ -29,7 +29,13 @@ This is a boilerplate template for faster development with nestjs. Here are the 
 
 1. Structured project for great scalability
 2. Exceptions handler
-3. Authentication with
+3. Authentication with encrypted JWT
+4. Image upload and image splitting example with [sharp](https://www.npmjs.com/package/sharp)
+5. Multiple database handler with [TypeORM](https://typeorm.io)
+6. View engine with [EJS](https://ejs.co)
+7. Logging with [winston](https://www.npmjs.com/package/winston)
+
+Future examples can still created.
 
 ## Installation
 
