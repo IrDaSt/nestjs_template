@@ -22,10 +22,11 @@ import responsesUtils from '@utilities/responses.utils'
 import { Response } from 'express'
 import moment from 'moment'
 import sharp from 'sharp'
+import prefixApi from '../prefixApi'
 import { EditUserBodyDto } from './dto/EditUserBody.dto'
 import { UserService } from './user.service'
 
-@Controller('user')
+@Controller(prefixApi.api + 'user')
 export class UserController {
   constructor(
     private readonly userService: UserService,

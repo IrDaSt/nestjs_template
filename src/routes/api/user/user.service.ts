@@ -36,11 +36,11 @@ export class UserService {
     email: string
     hashed_password: string
   }) => {
-    return this.userRepository.insert({
-      name,
-      email,
-      password: hashed_password,
-    })
+    const new_item = new UserEntity()
+    new_item.name = name
+    new_item.email = email
+    new_item.password = hashed_password
+    return this.userRepository.insert(new_item)
   }
 
   createSimpleTr = (
@@ -55,11 +55,11 @@ export class UserService {
       hashed_password: string
     },
   ) => {
-    return qR.manager.getRepository(UserEntity).insert({
-      name,
-      email,
-      password: hashed_password,
-    })
+    const new_item = new UserEntity()
+    new_item.name = name
+    new_item.email = email
+    new_item.password = hashed_password
+    return qR.manager.getRepository(UserEntity).insert(new_item)
   }
 
   edit = ({
