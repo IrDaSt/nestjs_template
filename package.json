@@ -97,16 +97,18 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {
-      "^@models(.*)$": "<rootDir>/src/resources/models/$1",
-      "^@config(.*)$": "<rootDir>/src/resources/config/$1",
-      "^@utilities(.*)$": "<rootDir>/src/resources/utilities/$1",
-      "^@exceptions(.*)$": "<rootDir>/src/resources/exceptions/$1",
-      "^@services(.*)$": "<rootDir>/src/resources/services/$1",
-      "^@guards(.*)$": "<rootDir>/src/resources/guards/$1",
-      "^@custom-types(.*)$": "<rootDir>/src/resources/custom-types/$1",
-      "^@websockets(.*)$": "<rootDir>/src/resources/websockets/$1",
-      "^@task-scheduler(.*)$": "<rootDir>/src/resources/task-scheduler/$1",
-      "^@constants(.*)$": "<rootDir>/src/resources/constants/$1"
+      "^@src(.*)$": "<rootDir>/$1",
+      "^@routes(.*)$": "<rootDir>/routes/$1",
+      "^@models(.*)$": "<rootDir>/resources/models/$1",
+      "^@config(.*)$": "<rootDir>/resources/config/$1",
+      "^@utilities(.*)$": "<rootDir>/resources/utilities/$1",
+      "^@exceptions(.*)$": "<rootDir>/resources/exceptions/$1",
+      "^@services(.*)$": "<rootDir>/resources/services/$1",
+      "^@guards(.*)$": "<rootDir>/resources/guards/$1",
+      "^@custom-types(.*)$": "<rootDir>/resources/custom-types/$1",
+      "^@websockets(.*)$": "<rootDir>/resources/websockets/$1",
+      "^@task-scheduler(.*)$": "<rootDir>/resources/task-scheduler/$1",
+      "^@constants(.*)$": "<rootDir>/resources/constants/$1"
     }
   }
 }
