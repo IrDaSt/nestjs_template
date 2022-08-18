@@ -28,6 +28,12 @@
       // "@services/*": [
       //   "src/services/*"
       // ],
+      "@src/*": [
+        "src/*"
+      ],
+      "@routes/*": [
+        "src/routes/*"
+      ],
       "@models/*": [
         "src/resources/models/*"
       ],
