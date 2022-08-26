@@ -1,5 +1,8 @@
 import crypto from 'crypto'
-import CryptoJS from 'crypto-js'
+
+const bufferEncryption = 'utf8'
+const encryptionType = 'aes-256-cbc'
+const encryptionEncoding = 'base64'
 
 const generateSalt = () => crypto.randomBytes(12).toString('hex')
 
@@ -12,11 +15,31 @@ const ecryptSHA256 = (text: string) =>
 const ecryptMD5 = (text: string) =>
   crypto.createHash('md5').update(text).digest('hex')
 
-const encryptWithSecretKey = (text: string, key: string) =>
-  CryptoJS.AES.encrypt(text, key).toString()
+const encryptWithSecretKey = (text: string, secret_key: string) => {
+  const val = text
+  const key = Buffer.from(secret_key, bufferEncryption)
+  const iv = Buffer.from(
+    secret_key.slice(0, secret_key.length / 2),
+    bufferEncryption,
+  )
+  const cipher = crypto.createCipheriv(encryptionType, key, iv)
+  let encrypted = cipher.update(val, bufferEncryption, encryptionEncoding)
+  encrypted += cipher.final(encryptionEncoding)
+  return encrypted
+}
 
-const decryptWithSecretKey = (text: string, key: string) =>
-  CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8)
+const decryptWithSecretKey = (text: string, secret_key: string) => {
+  const buff = Buffer.from(text, encryptionEncoding)
+  const key = Buffer.from(secret_key, bufferEncryption)
+  const iv = Buffer.from(
+    secret_key.slice(0, secret_key.length / 2),
+    bufferEncryption,
+  )
+  const decipher = crypto.createDecipheriv(encryptionType, key, iv)
+  const deciphered =
+    decipher.update(buff).toString() + decipher.final().toString()
+  return deciphered
+}
 
 const cryptoUtils = {
   generateSalt,
